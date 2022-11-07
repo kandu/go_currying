@@ -19,6 +19,14 @@ func main() {
     hi:= curried("hi")(false)
     HI:= curried("hi")(true)
 
-    hi(3)
-    HI(2)
+    hi(4)
+    HI(3)
+
+    uncurried:= Uncurry3(curried)
+    rearranged:= Curry2(func(str string, n int) {
+        uncurried(str, false, n)
+    })
+
+    uncurried("uncurried", true, 2)
+    rearranged("rearranged")(2)
 }
