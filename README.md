@@ -8,7 +8,7 @@ Functions in this go module implement curring and uncurring. This module depends
 To install go\_curring module, you can use the below command
 
 ```sh
-go get -u github.com/kandu/go_curring@0.1
+go get -u github.com/kandu/go_currying@0.1
 ```
 
 ## Quick start
