@@ -1,6 +1,6 @@
 # Go Currying
 
-Functions in this go module implement curring. This module depends on Go's new generics language feature, so Go 1.18 or newer is required.
+Functions in this go module implement curring and uncurring. This module depends on Go's new generics language feature, so Go 1.18 or newer is required.
 
 ## Installation
 
@@ -35,8 +35,16 @@ func main() {
     hi:= curried("hi")(false)
     HI:= curried("hi")(true)
 
-    hi(3)
-    HI(2)
+    hi(4)
+    HI(3)
+
+    uncurried:= Uncurry3(curried)
+    rearranged:= Curry2(func(str string, n int) {
+        uncurried(str, false, n)
+    })
+
+    uncurried("uncurried", true, 2)
+    rearranged("rearranged")(2)
 }
 ```
 
@@ -46,6 +54,12 @@ will print out
 hi
 hi
 hi
+hi
 HI
 HI
+HI
+UNCURRIED
+UNCURRIED
+rearranged
+rearranged
 ```
